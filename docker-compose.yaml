@@ -1,0 +1,11 @@
+version : '3'
+
+services:
+  web:
+    build: .
+    container_name: machine_learning
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - 8000:8000 # on attache le port de notre machine au port de l'image docker
+    volumes:
+      - .:/app
